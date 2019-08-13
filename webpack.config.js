@@ -39,6 +39,7 @@ module.exports = {
     module: { // 这个节点，用于配置所有第三方模块 加载器
         rules: [  // 所有第三方模块的匹配规则
             {test: /\.css$/, use: ['style-loader', 'css-loader']}, //配置处理。css文件的第三方loader规则
+            {test: /\.scss$/, use: ['style-loader', 'css-loader','sass-loader']},
             {test: /\.vue$/, use: 'vue-loader'},
             {test: /\.(jpg|png|gif|bmp|svg)$/, use: 'url-loader'}, // 处理图片路径的loader
             {test: /\.(woff|woff2|ttf|eot)$/, use: 'file-loader'}, // 处理字体文件的loader
