@@ -1,5 +1,11 @@
 # 基于Vue 框架开发的项目
 
+## api接口地址
+新闻列表
+http://www.liulongbin.top:3005/api/getnewslist
+
+商品列表
+http://www.liulongbin.top:3005/api/getprodlist
 
 
 ## 用传统方式（命令行）把修改过的代码上传到码云
@@ -121,5 +127,5 @@
 1. 保证自己的手机可以正常运行
 2. 保证 手机和开发项目的电脑处于同一个局域网， 
 3. 打开自己项目的 package.json 文件，在dev脚本中，添加一个 --host 指令，把当前电脑的WIFI IP地址，设置为 --host 的指令值；
-    + 
+    
 
