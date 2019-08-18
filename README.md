@@ -5,7 +5,7 @@
 http://www.liulongbin.top:3005/api/getnewslist
 
 商品列表
-http://www.liulongbin.top:3005/api/getprodlist
+http://www.liulongbin.top:3005/api/getgoods?pageindex=1
 
 
 ## 用传统方式（命令行）把修改过的代码上传到码云

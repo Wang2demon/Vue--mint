@@ -4,7 +4,7 @@
         <hr>
         <textarea name="" id="" placeholder="请输入内容(最多120字)" maxlength="120" v-model="msg"></textarea>
 
-        <mt-button type="primary" small="large" @click="postComment">发表评论</mt-button>
+        <mt-button type="primary" size="large" @click="postComment">发表评论</mt-button>
 
         <div class="cmt-list">
             <div class="cmt-item" v-for="(item, i) in comments" :key="item.add_time">
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <mt-button type="danger" small="large" @click="getMore">加载更多</mt-button>
+        <mt-button type="danger" size="large" @click="getMore">加载更多</mt-button>
 
     </div>
 </template>
@@ -38,7 +38,7 @@ export default {
     },
     methods: {
         getComments(){
-            this.$http.get('api/getcommemts/'+ this.id +'?pageindex='+ this.pageIndex).then(result => {
+            this.$http.get('api/getcomments/'+ this.id +'?pageindex='+ this.pageIndex).then(result => {
                 if(result.body.status === 0){
                     // this.comments = result.body.message
                     this.comments = this.comments.concat(result.body.message)
@@ -60,7 +60,7 @@ export default {
             // 参数1：请求的Url 地址
             // 参数2： 提交给服务器的数据对象 { content: this.msg}
             // 参数3：定义提交时候，表单中数据的格式
-            this.$http.post('api/postcomment' + this.$route.params.id, {content: this.msg.trim()})
+            this.$http.post('api/postcomment/' + this.$route.params.id, {content: this.msg.trim()})
             .then(function(result){
                 if(result.body.status === 0){
                     // 1. 拼接出一个评论对象
@@ -76,5 +76,28 @@ export default {
 </script>
 
 <style lang="scss" scped>
-    
+    .cmt-container {
+        h3 {
+            font-size: 18px;
+        }
+        textarea {
+            font-size: 14px;
+            height: 50px;
+            margin: 0;
+        }
+        .cmt-list {
+            margin: 10px 0;
+            .cmt-item{
+                font-size: 13px;
+                .cmt-title{
+                    line-height: 30px;
+                    background-color: #ccc;
+                }
+                .cmt-body{
+                    line-height: 35px;
+                    text-indent: 2em;
+                }
+            }
+        }
+    }
 </style>
